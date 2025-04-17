@@ -6,7 +6,14 @@
 
 clear
 command="null"
+guia=$(pwd)
 cd ~
+
+echo "Proyecto Bash en Linux"
+echo "Version 1.0.0"
+echo "Para ayuda de comandos, escriba "ayuda""
+echo
+sleep 2
 
 while true;
 do
@@ -14,24 +21,44 @@ do
     
     case $command in
 
-    exit)
+    ayuda)
+        echo
+        $guia/comandos/ayudaa.sh
+        echo
+        ;;
+
+    creditos)
+        echo "Aqui van los creditos.sh"
+        ;;
+
+    buscar)
+        $guia/encuentra.sh
+        ;;
+    
+    infosis)
+        $guia/infosis.sh
+        ;;
+    
+    hora)
+        $guia/hora.sh
+        ;;
+    
+    juego)
+        $guia/gato.sh
+        ;;
+
+    musica)
+        echo "Aqui va el reproductor.sh"
+        ;;
+
+    salir)
         break
-        ;;
-
-    PATTERN_2)
-        echo STATEMENTS_2
-        ;;
-
-    PATTERN_N)
-        echo STATEMENTS_N
         ;;
 
     *)
         $command
         ;;
     esac
-
-
 done
 
 echo "Final lol"

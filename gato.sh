@@ -34,7 +34,9 @@ function revisar_ganador(){
         ganador="${tablero[0]}"
     else if [[ ${tablero[2]} == ${tablero[4]} && ${tablero[4]} == ${tablero[6]} && ${tablero[2]} != "#" ]]; then
         ganador="${tablero[2]}"
-    fi fi fi fi fi fi fi fi
+    else if [[ ${numeroTurno} == 10 ]]; then
+        ganador="Empate"
+    fi fi fi fi fi fi fi fi fi
 }
 
 ganador=0
@@ -74,9 +76,18 @@ do
 
     revisar_ganador
 
+
+
 done
 
 echo "-----------------------------------"
 imprimir_tablero
-echo "El ganador es $ganador!"
+
+if [[ ${ganador} == "Empate" ]]; then
+    echo "Empate! Nadie gana"
+    echo
+else
+    echo "El ganador es $ganador!"
+    echo
+fi
 exit
