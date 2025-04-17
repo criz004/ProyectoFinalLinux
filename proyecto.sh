@@ -4,7 +4,7 @@
 # - 
 # - Velasco Avila Cristopher
 
-clear
+tput clear
 command="null"
 guia=$(pwd)
 cd ~
