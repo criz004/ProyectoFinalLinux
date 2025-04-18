@@ -1,9 +1,10 @@
 #!/bin/bash
 
 echo "Cerrando la terminal, bye..."
-sleep 5
+sleep 2
 
-trap '' SIGINT
-trap '' SIGTSTP
-
-kill -9 $$
+if [[ -n "PROYECTO_PID" ]]; then
+    kill -9 $PROYECTO_PID
+else 
+    echo "ERROR"
+fi 
