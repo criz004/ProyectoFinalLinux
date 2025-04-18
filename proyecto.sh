@@ -1,13 +1,18 @@
 # !/bin/bash
 # Proyecto de bash
 # Desarrollado por:
-# - 
+# - Hernandez Rodriguez Frida
 # - Velasco Avila Cristopher
+
+trap '' SIGINT
+trap '' SIGTSTP
 
 tput clear
 command="null"
 guia=$(pwd)
 cd ~
+
+export PROYECTO_PID=$$
 
 echo "Proyecto Bash en Linux"
 echo "Version 1.0.0"
@@ -28,7 +33,7 @@ do
         ;;
 
     creditos)
-        echo "Aqui van los creditos.sh"
+        $guia/comandos/creditos.sh
         ;;
 
     buscar)
@@ -52,7 +57,11 @@ do
         ;;
 
     salir)
-        break
+        $guia/comandos/salir.sh
+        ;;
+
+    exit)
+        echo "Comando deshabilitado. Usa el comando -salir- para cerrar la terminal"
         ;;
 
     *)
