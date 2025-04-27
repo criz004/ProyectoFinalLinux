@@ -87,7 +87,18 @@ do
         ;;
 
     musica)
-        echo "Aqui va el reproductor.sh"
+        if ! dpkg -s mpg123 &> /dev/null; then 
+            read -p "No tienes el reproductor instalado! Deseas instalarlo? [Y/*]: " respuesta
+            if [[ $respuesta == Y || $respuesta == y ]]; then
+                sudo apt install mpg123
+                clear
+                $guia/reproductor.sh
+            else
+                echo "No puedes usar el reproductor sin mpg123!"
+            fi
+        else
+            $guia/reproductor.sh
+        fi
         ;;
 
     salir)
